@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+        <title>{% block title %}{% endblock title %} / atri-elo</title>
+        {% endblock head %}
+    </head>
+    <body>
+        {% block body %}
+        {% endblock body %}
+    </body>
+</html>

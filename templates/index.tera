@@ -1,0 +1,11 @@
+{% extends "base.tera" %}
+{% block title %}Mainpage{% endblock title %}
+{% block body %}
+<section class="section">
+    <div class="container">
+        <h1 class="title">
+            atri-elo is here!
+        </h1>
+    </div>
+</section>
+{% endblock body %}
