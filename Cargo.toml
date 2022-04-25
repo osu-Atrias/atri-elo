@@ -9,3 +9,13 @@ tokio = { version = "1", features = ["full"] }
 axum = "0.5"
 lazy_static = "1"
 dotenv_codegen = "0.15"
+sqlx = { version = "0.5", features = [
+    "runtime-tokio-rustls",
+    "postgres",
+    "macros",
+    "chrono",
+    "json",
+] }
+serde_json = "1"
+serde = { version = "1", features = ["derive"] }
+chrono = { version = "0.4", features = ["serde"] }

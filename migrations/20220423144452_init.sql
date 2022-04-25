@@ -1,3 +1,16 @@
+CREATE SCHEMA common;
+
+CREATE TABLE common.players (
+    id bigint PRIMARY KEY,
+    name text NOT NULL UNIQUE,
+    mu double precision NOT NULL,
+    mu_pi double precision NOT NULL,
+    sigma double precision NOT NULL,
+    delta double precision NOT NULL,
+    perfs double precision[] NOT NULL,
+    weights double precision[] NOT NULL
+);
+
 CREATE SCHEMA regular;
 
 CREATE TABLE regular.contest_groups (
@@ -27,7 +40,7 @@ CREATE TABLE regular.matches (
     contest_id bigint NOT NULL REFERENCES regular.contests,
     beatmap_id bigint NOT NULL,
     beatmap_mods integer NOT NULL,
-    beatmap_mode tinyint NOT NULL,
+    beatmap_mode smallint NOT NULL,
     major_metric sorting_metric NOT NULL,
     minor_metric sorting_metric NOT NULL,
     status jsonb NOT NULL
@@ -39,7 +52,6 @@ CREATE TABLE regular.entries (
     score_id bigint NOT NULL,
     score integer NOT NULL,
     pp double precision NOT NULL,
-    acc double precision NOT NULL,
     combo integer NOT NULL,
     n300 integer NOT NULL,
     n100 integer NOT NULL,
@@ -48,21 +60,9 @@ CREATE TABLE regular.entries (
     ngeki integer NOT NULL,
     nkatu integer NOT NULL,
     mods integer NOT NULL,
-    mode tinyint NOT NULL,
+    mode smallint NOT NULL,
     play_time timestamptz NOT NULL,
     player_id bigint NOT NULL REFERENCES regular.players,
     elo_perf double precision NULL,
     elo_diff double precision NULL
 );
-
-CREATE TABLE regular.players (
-    id bigint PRIMARY KEY,
-    name text NOT NULL UNIQUE,
-    mu double precision NOT NULL,
-    mu_pi double precision NOT NULL,
-    sigma double precision NOT NULL,
-    delta double precision NOT NULL,
-    perfs double precision[] NOT NULL,
-    weights double precision[] NOT NULL
-);
-

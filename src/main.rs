@@ -1,6 +1,8 @@
 mod route;
 
-mod model;
+mod regular;
+
+mod common;
 
 use route::router;
 
