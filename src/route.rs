@@ -25,7 +25,7 @@ lazy_static! {
 async fn index() -> impl IntoResponse {
     TEMPLATES
         .render("index.tera", &tera::Context::new())
-        .map(|rendered| Html(rendered))
+        .map(Html)
         .map_err(|e| (StatusCode::INTERNAL_SERVER_ERROR, e.to_string()))
 }
 
